@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- revx-console-shim:start -->
+<script>
+(function () {
+  try {
+    if (typeof window === 'undefined') return;
+    if (window.parent === window) return;
+    // Cache the real top window at script load so a later (best-effort)
+    // override by the host-bridge shim can't redirect our messages into the
+    // intermediate wrapper. Fall back to `parent` if a sandbox blocks the
+    // top-window access.
+    var rev;
+    try { rev = window.top || window.parent; } catch (_) { rev = window.parent; }
+    if (!rev || rev === window) return;
+
+    // --- console.* capture ---
+    var methods = ['log', 'info', 'warn', 'error', 'debug'];
+    methods.forEach(function (m) {
+      var orig = console[m];
+      if (typeof orig !== 'function') return;
+      console[m] = function () {
+        try { orig.apply(console, arguments); } catch (_) {}
+        try {
+          var args = Array.prototype.map.call(arguments, function (a) {
+            if (typeof a === 'string') return a;
+            if (a instanceof Error) return a.stack || a.message || String(a);
+            try { return JSON.stringify(a); } catch (e) { return String(a); }
+          });
+          rev.postMessage({ type: 'revx-console', method: m, args: args }, '*');
+        } catch (_) {}
+      };
+    });
+
+    window.addEventListener('error', function (e) {
+      try {
+        rev.postMessage({
+          type: 'revx-console', method: 'error',
+          args: [(e.message || 'Error') + ' at ' + (e.filename || '?') + ':' + (e.lineno || 0) + ':' + (e.colno || 0)]
+        }, '*');
+      } catch (_) {}
+    });
+
+    // --- failed-fetch capture ---
+    // Browser network-layer failures (CORS blocks, DNS errors, dead hosts) never
+    // reach console.* and are invisible to the wrappers above; the only JS-visible
+    // trace is the rejected fetch promise. Log rejections only — responses
+    // (including 4xx/5xx) are app concerns and stay untouched.
+    if (typeof window.fetch === 'function') {
+      var origFetch = window.fetch;
+      window.fetch = function (input, init) {
+        var method = 'GET';
+        var url = '';
+        try {
+          method = (init && init.method) || (input && input.method) || 'GET';
+          url = typeof input === 'string' ? input : (input && input.url) || String(input);
+        } catch (_) {}
+        return origFetch.apply(this, arguments).catch(function (err) {
+          try {
+            var msg = (err && err.message) || String(err);
+            rev.postMessage({ type: 'revx-console', method: 'warn', args: ['[network] ' + method + ' ' + url + ' failed: ' + msg] }, '*');
+          } catch (_) {}
+          throw err;
+        });
+      };
+    }
+    window.addEventListener('unhandledrejection', function (e) {
+      try {
+        var r = e.reason;
+        var msg = r && r.stack ? r.stack : (r && r.message ? r.message : String(r));
+        rev.postMessage({ type: 'revx-console', method: 'error', args: ['Unhandled rejection: ' + msg] }, '*');
+      } catch (_) {}
+    });
+
+    // --- structured-clone-safe serializer for eval results ---
+    function serialize(root) {
+      var seen = new WeakSet();
+      function walk(value, depth) {
+        if (depth > 6) return '[MaxDepth]';
+        if (value === undefined) return { __t: 'undefined' };
+        if (value === null) return null;
+        var t = typeof value;
+        if (t === 'string' || t === 'number' || t === 'boolean') return value;
+        if (t === 'function') return { __t: 'function', name: value.name || 'anonymous' };
+        if (t === 'symbol') return { __t: 'symbol', desc: value.toString() };
+        if (t === 'bigint') return { __t: 'bigint', value: value.toString() };
+        if (value instanceof Error) return { __t: 'Error', name: value.name, message: value.message, stack: value.stack };
+        if (typeof Node !== 'undefined' && value instanceof Node) {
+          var html = value.outerHTML || value.nodeValue || '';
+          return { __t: 'Node', tag: value.nodeName, html: html.length > 2000 ? html.slice(0, 2000) + '…' : html };
+        }
+        if (value instanceof Date) return { __t: 'Date', iso: value.toISOString() };
+        if (value instanceof Map) {
+          var entries = []; var i = 0;
+          value.forEach(function (v, k) { if (i++ < 200) entries.push([walk(k, depth + 1), walk(v, depth + 1)]); });
+          return { __t: 'Map', size: value.size, entries: entries };
+        }
+        if (value instanceof Set) {
+          var arr = []; var j = 0;
+          value.forEach(function (v) { if (j++ < 200) arr.push(walk(v, depth + 1)); });
+          return { __t: 'Set', size: value.size, items: arr };
+        }
+        if ((typeof NodeList !== 'undefined' && value instanceof NodeList) ||
+            (typeof HTMLCollection !== 'undefined' && value instanceof HTMLCollection)) {
+          var items = Array.prototype.slice.call(value, 0, 200).map(function (v) { return walk(v, depth + 1); });
+          return { __t: value.constructor && value.constructor.name || 'NodeList', length: value.length, items: items };
+        }
+        if (t === 'object') {
+          if (seen.has(value)) return '[Circular]';
+          seen.add(value);
+          if (Array.isArray(value)) {
+            return value.slice(0, 200).map(function (v) { return walk(v, depth + 1); });
+          }
+          var out = {};
+          var keys;
+          try { keys = Object.keys(value).slice(0, 100); } catch (e) { return '[UnreadableObject]'; }
+          for (var k = 0; k < keys.length; k++) {
+            try { out[keys[k]] = walk(value[keys[k]], depth + 1); }
+            catch (e) { out[keys[k]] = '[Throws: ' + (e && e.message || e) + ']'; }
+          }
+          return out;
+        }
+        return String(value);
+      }
+      return walk(root, 0);
+    }
+
+    // --- eval handler (host → preview) ---
+    var AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
+    window.addEventListener('message', function (event) {
+      var data = event.data;
+      if (!data || data.type !== 'revx-eval') return;
+      var id = data.id;
+      var code = data.code;
+      if (typeof id !== 'string' || typeof code !== 'string') return;
+      (async function () {
+        try {
+          var fn;
+          // Try expression form first so one-liners like `document.title` work.
+          // Fall back to block form so multi-statement code works (caller must
+          // include a `return` statement to return a value).
+          try { fn = new AsyncFunction('return (' + code + ')'); }
+          catch (_) { fn = new AsyncFunction(code); }
+          var result = await fn();
+          rev.postMessage({ type: 'revx-eval-result', id: id, ok: true, value: serialize(result) }, '*');
+        } catch (err) {
+          var msg = (err && err.stack) || (err && err.message) || String(err);
+          rev.postMessage({ type: 'revx-eval-result', id: id, ok: false, error: msg }, '*');
+        }
+      })();
+    });
+
+    // --- announce presence so the host captures this window as the preview ---
+    try { rev.postMessage({ type: 'revx-console-hello' }, '*'); } catch (_) {}
+  } catch (_) {}
+})();
+</script>
+<!-- revx-console-shim:end -->
+
+<!-- revx-host-bridge-shim:start -->
+<script>(function(){try{if(typeof window==='undefined')return;if(window.parent===window)return;if(window.top===window.parent)return;Object.defineProperty(window,'top',{configurable:true,get:function(){return window.parent;}});}catch(e){try{window.top=window.parent;}catch(_){}}})();</script>
+<!-- revx-host-bridge-shim:end -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Lornsmouth Horrors - A Lovecraftian Tale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain-overlay"></div>
+  
+  <div class="container">
+    <header>
+      <h1 class="title">The Lornsmouth Horror</h1>
+      <p class="subtitle">A Tale of Cosmic Dread</p>
+    </header>
+
+    <div class="game-wrapper">
+      <!-- Top section: Pixel art + Sanity meter side by side -->
+      <div class="top-section">
+        <!-- Pixel art display -->
+        <div class="pixel-art-container">
+          <div class="pixel-art-frame">
+            <div class="pixel-art-content" id="pixel-art"></div>
+          </div>
+          <div class="pixel-art-description" id="art-description"></div>
+        </div>
+
+        <!-- Sanity meter -->
+        <div class="sanity-container">
+          <div class="sanity-label">
+            <span>SANITY</span>
+            <span id="sanity-value">100</span>
+            <span class="sanity-status" id="sanity-status">Rational</span>
+          </div>
+          <div class="sanity-bar-outer">
+            <div class="sanity-bar-inner" id="sanity-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main game area -->
+      <div class="game-area">
+        <!-- Story content -->
+        <div class="story-container">
+          <h2 class="chapter-title" id="chapter-title"></h2>
+          <p class="story-text" id="story-text"></p>
+        </div>
+
+        <!-- Choices -->
+        <div class="choices-container" id="choices-container"></div>
+
+        <!-- Restart button (hidden initially) -->
+        <button class="restart-btn hidden" id="restart-btn">Begin Again</button>
+      </div>
+    </div>
+
+    <footer>
+      <p class="footer-text">Inspired by the works of H.P. Lovecraft • 1920s New England</p>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "imported-static-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.mjs",
+    "build": "node build.mjs"
+  }
+}

@@ -1,0 +1,462 @@
+[
+  {
+    "step": 1,
+    "title": "Arrival",
+    "description": "You disembark at the fog-shrouded dock of Lornsmouth, your boots echoing on weathered planks slick with seawater. The mist clings to everything, thick and unnatural. Through the gloom, you can make out shadowy figures gathered near flickering lanterns, their voices rising and falling in a rhythmic chant that makes your skin crawl. The smell of brine mixes with something else—something acrid and wrong.",
+    "pixelArtPrompt": "Foggy dockside, 1920s, shadowy townsfolk, pixel art, 128x128",
+    "choices": [
+      { "text": "Approach the lantern-lit crowd", "sanityCost": 10, "nextStep": 2 },
+      { "text": "Sneak away down the side alley", "sanityCost": 5, "nextStep": 3 },
+      { "text": "Search the docked vessels for clues", "sanityCost": 5, "nextStep": 22 }
+    ]
+  },
+  {
+    "step": 2,
+    "title": "Strange Greeting",
+    "description": "As you approach, the crowd parts like a receding tide, revealing faces with glassy, unfocused eyes that don't quite track your movements. An ancient woman emerges from their midst, her withered hand reaching toward you with surprising purpose. Her skin has the texture of old parchment, and when she smiles, you see teeth filed to points. 'We've been expecting you,' she croaks in a voice like grinding stones.",
+    "pixelArtPrompt": "Crowded dock, old woman pointing, pixel art, 128x128",
+    "choices": [
+      { "text": "Speak with the woman", "sanityCost": 10, "nextStep": 4 },
+      { "text": "Flee into the fog", "sanityCost": 10, "nextStep": 3 },
+      { "text": "Ask about the lighthouse keeper", "sanityCost": 15, "nextStep": 23 }
+    ]
+  },
+  {
+    "step": 3,
+    "title": "Fogbound Alley",
+    "description": "You slip into the narrow alleyways between sagging buildings that lean together like conspirators. The fog is thicker here, almost solid, and the paths seem to shift when you're not looking directly at them. Behind you, you hear a wet, sliding sound—like something massive dragging itself across stone. You don't turn around. A flickering light beckons from somewhere ahead, or perhaps to the side. Directions have become uncertain.",
+    "pixelArtPrompt": "Twisting alley, shifting mist, subtle tentacle, 128x128",
+    "choices": [
+      { "text": "Follow flickering light", "sanityCost": 5, "nextStep": 4 },
+      { "text": "Investigate strange movement", "sanityCost": 15, "nextStep": 5 },
+      { "text": "Climb fire escape to rooftops", "sanityCost": 10, "nextStep": 24 }
+    ]
+  },
+  {
+    "step": 4,
+    "title": "Town Square",
+    "description": "The town square opens before you like a wound in the fabric of the village. Empty market stalls stand in orderly rows, their awnings flapping in a wind you cannot feel. At the center looms a statue of something that might once have been human, but its proportions are all wrong—too many joints, limbs that bend in impossible directions. The stone seems to shudder and writhe when you look at it peripherally. A priest in moth-eaten vestments waves at you with unsettling enthusiasm, his grin far too wide.",
+    "pixelArtPrompt": "Desolate square, grim statue, waving priest, 128x128",
+    "choices": [
+      { "text": "Approach the priest", "sanityCost": 10, "nextStep": 6 },
+      { "text": "Examine the statue", "sanityCost": 10, "nextStep": 7 },
+      { "text": "Enter the abandoned library", "sanityCost": 5, "nextStep": 25 }
+    ]
+  },
+  {
+    "step": 5,
+    "title": "Ambushed!",
+    "description": "It erupts from the gutter in a spray of fetid water—a writhing mass of glistening flesh and too many appendages. Claws like rusted fishhooks slash toward your face. You stumble backward, grabbing anything you can use as a weapon—a broken board, a rusted pipe. The creature shrieks in a pitch that shouldn't exist, a sound that bypasses your ears and screams directly into your brain. You swing wildly, and miraculously, the thing retreats, sliding back into the darkness with a frustrated hiss. But the image of its impossible anatomy is seared into your mind forever.",
+    "pixelArtPrompt": "Tentacled thing in alley, protagonist recoiling, 128x128",
+    "choices": [
+      { "text": "Fight back and escape", "sanityCost": 20, "nextStep": 4 },
+      { "text": "Collapse from terror", "sanityCost": 25, "nextStep": 20 }
+    ]
+  },
+  {
+    "step": 6,
+    "title": "Priest's Warning",
+    "description": "The priest leans close, his breath reeking of brine and decay. 'They're preparing,' he whispers urgently, eyes darting to the shadows. 'Tonight, when the tide is highest and the stars align just so, they'll complete the ritual.' He presses a small vial into your palm—the liquid inside glows faintly green. 'Blessed water,' he claims, though you notice his fingers are webbed between the knuckles. 'It may protect you. Or it may prepare you. The line is... thinner than you think.'",
+    "pixelArtPrompt": "Whispering priest, proffering vial, 128x128",
+    "choices": [
+      { "text": "Drink the water", "sanityCost": 5, "nextStep": 8 },
+      { "text": "Decline and move away", "sanityCost": 10, "nextStep": 7 },
+      { "text": "Ask him about the old families", "sanityCost": 15, "nextStep": 26 }
+    ]
+  },
+  {
+    "step": 7,
+    "title": "The Statue's Secret",
+    "description": "You kneel at the statue's base, examining the carvings that cover the pedestal. The symbols seem to writhe and reconfigure themselves when you're not looking directly at them—ancient pictograms that predate any human language. The air around the statue grows progressively colder, and frost begins to form on the stone despite the mild night. Your breath mists in the air. The carvings tell a story of something that came from the stars, something that dwells in the deep places of the ocean, waiting. And the statue itself... you realize with mounting horror that it's not depicting a human at all, but something merely wearing a human shape.",
+    "pixelArtPrompt": "Distorted statue, shifting runes, 128x128",
+    "choices": [
+      { "text": "Trace the carvings", "sanityCost": 15, "nextStep": 9 },
+      { "text": "Step away quickly", "sanityCost": 5, "nextStep": 8 },
+      { "text": "Photograph the symbols with your camera", "sanityCost": 10, "nextStep": 27 }
+    ]
+  },
+  {
+    "step": 8,
+    "title": "Shadows Moving",
+    "description": "Night descends over Lornsmouth with unnatural speed, as if the darkness itself is eager. The fog thickens until you can barely see ten feet ahead. All around you, shadows move with purpose—shapes that are almost human, but not quite. Doors slam throughout the village in a discordant rhythm, though you feel no wind. Windows glow with sickly light. In the darkness between buildings, you catch glimpses of eyes reflecting light that doesn't exist—too many eyes, watching, waiting. The chanting from the docks has grown louder, more insistent. You need shelter. Now.",
+    "pixelArtPrompt": "Night in village, doors slamming, strange eyes, 128x128",
+    "choices": [
+      { "text": "Seek shelter in the inn", "sanityCost": 10, "nextStep": 10 },
+      { "text": "Hide in an abandoned shop", "sanityCost": 15, "nextStep": 11 },
+      { "text": "Make for the church", "sanityCost": 10, "nextStep": 28 }
+    ]
+  },
+  {
+    "step": 9,
+    "title": "Vision from Beyond",
+    "description": "Reality tears like wet paper. Your mind is thrust outward—no, inward—into impossible dimensions. You see the cosmos as it truly is: vast, indifferent, teeming with geometries that violate every law of nature you thought immutable. Beneath the ocean, something stirs. Something that has been sleeping since before the first human stood upright. Its dreams leak into our world like poison, and Lornsmouth is the infected wound. You see yourself from outside, a insignificant mote standing in the shadow of eternity. The vision threatens to pull you under completely.",
+    "pixelArtPrompt": "Surreal cosmic vision, tentacles, ocean, 128x128",
+    "choices": [
+      { "text": "Claw back to reality", "sanityCost": 20, "nextStep": 8 },
+      { "text": "Welcome the revelation", "sanityCost": 25, "nextStep": 20 },
+      { "text": "Try to understand the vision", "sanityCost": 15, "nextStep": 29 }
+    ]
+  },
+  {
+    "step": 10,
+    "title": "Inn of Whispers",
+    "description": "The innkeeper greets you wordlessly. The walls shift as you pass.",
+    "pixelArtPrompt": "Crooked inn interior, whispering walls, 128x128",
+    "choices": [
+      { "text": "Ask about the ritual", "sanityCost": 10, "nextStep": 12 },
+      { "text": "Lock yourself in your room", "sanityCost": 10, "nextStep": 13 },
+      { "text": "Explore the cellar", "sanityCost": 15, "nextStep": 30 }
+    ]
+  },
+  {
+    "step": 11,
+    "title": "Shop of Masks",
+    "description": "Dusty masks leer at you from broken shelves. Footsteps pass outside.",
+    "pixelArtPrompt": "Dark shop, uncanny masks, 128x128",
+    "choices": [
+      { "text": "Wear a mask to blend in", "sanityCost": 10, "nextStep": 14 },
+      { "text": "Hide in a back room", "sanityCost": 10, "nextStep": 13 },
+      { "text": "Examine the shop owner's journal", "sanityCost": 10, "nextStep": 31 }
+    ]
+  },
+  {
+    "step": 12,
+    "title": "Innkeeper's Tale",
+    "description": "He shares the ritual happens tonight by the old lighthouse. His eyes seem to glow in the dark.",
+    "pixelArtPrompt": "Innkeeper whispering, map of lighthouse, 128x128",
+    "choices": [
+      { "text": "Prepare to confront it", "sanityCost": 10, "nextStep": 15 },
+      { "text": "Sneak out into the night", "sanityCost": 10, "nextStep": 13 },
+      { "text": "Ask for a weapon", "sanityCost": 5, "nextStep": 32 }
+    ]
+  },
+  {
+    "step": 13,
+    "title": "Panic and Pounding",
+    "description": "Your hiding place is beset by pounding and inhuman voices. The door begins to crack.",
+    "pixelArtPrompt": "Barricaded door, shadows creeping under, 128x128",
+    "choices": [
+      { "text": "Hold your ground", "sanityCost": 15, "nextStep": 14 },
+      { "text": "Flee through the window", "sanityCost": 15, "nextStep": 15 }
+    ]
+  },
+  {
+    "step": 14,
+    "title": "Ritual Procession",
+    "description": "Masked villagers parade past, chanting in forbidden tongues. They do not see you yet.",
+    "pixelArtPrompt": "Cult procession, lanterns, eerie masks, 128x128",
+    "choices": [
+      { "text": "Join the procession", "sanityCost": 10, "nextStep": 16 },
+      { "text": "Hide in the shadows", "sanityCost": 10, "nextStep": 17 },
+      { "text": "Follow them from a distance", "sanityCost": 5, "nextStep": 33 }
+    ]
+  },
+  {
+    "step": 15,
+    "title": "Storm Breaks",
+    "description": "The sky splits open with thunder that sounds like the death cry of something immense and ancient. Rain lashes at you horizontally as you fight your way toward the cliffs, each step a battle against wind that seems determined to push you back. The lighthouse looms ahead, its beacon pulsing with colors that hurt to look at—greens and purples that don't belong in this world. Lightning illuminates the churning sea below, and in those brief flashes, you see shapes moving beneath the waves. Vast shapes. The storm isn't natural. It's a summoning.",
+    "pixelArtPrompt": "Clifftop storm, lighthouse, rain, 128x128",
+    "choices": [
+      { "text": "Approach the lighthouse", "sanityCost": 15, "nextStep": 18 },
+      { "text": "Circle around to the caves", "sanityCost": 15, "nextStep": 17 },
+      { "text": "Climb the tower's exterior", "sanityCost": 20, "nextStep": 34 }
+    ]
+  },
+  {
+    "step": 16,
+    "title": "Cult Gathering",
+    "description": "By the lighthouse, cultists prepare a living sacrifice. The victim's screams pierce the storm.",
+    "pixelArtPrompt": "Lighthouse, robed cult, stone altar, 128x128",
+    "choices": [
+      { "text": "Try to free the victim", "sanityCost": 20, "nextStep": 19 },
+      { "text": "Watch the ritual in horror", "sanityCost": 15, "nextStep": 18 },
+      { "text": "Steal the ritual tome", "sanityCost": 25, "nextStep": 35 }
+    ]
+  },
+  {
+    "step": 17,
+    "title": "The Caves Below",
+    "description": "Ancient caves stretch beneath the cliffs. Phosphorescent fungi illuminate grotesque carvings of cyclopean cities.",
+    "pixelArtPrompt": "Glowing cave, ancient carvings, underground passage, 128x128",
+    "choices": [
+      { "text": "Study the carvings closely", "sanityCost": 20, "nextStep": 19 },
+      { "text": "Rush toward distant voices", "sanityCost": 10, "nextStep": 18 },
+      { "text": "Find an underwater passage", "sanityCost": 15, "nextStep": 36 }
+    ]
+  },
+  {
+    "step": 18,
+    "title": "The Summoning",
+    "description": "The cultists' chanting reaches a fever pitch, their voices merging into a single inhuman roar. The lighthouse beam pulses in rhythm with their words, casting impossible colors across the churning sea. The water begins to boil, great bubbles rising and bursting with the stench of deep ocean trenches. Then you see it: a tentacle the size of a ship's mast breaking the surface, barnacled and ancient, moving with terrible purpose. The stars above seem to shift in their courses. The boundary between sea and sky wavers and blurs. This is the moment. Everything depends on what you do next.",
+    "pixelArtPrompt": "Massive tentacle emerging from ocean, cult chanting, 128x128",
+    "choices": [
+      { "text": "Disrupt the ritual", "sanityCost": 25, "nextStep": 19 },
+      { "text": "Stand paralyzed in awe", "sanityCost": 20, "nextStep": 20 },
+      { "text": "Recite counter-incantation from your research", "sanityCost": 20, "nextStep": 37 }
+    ]
+  },
+  {
+    "step": 19,
+    "title": "Desperate Escape",
+    "description": "You run through streets that no longer follow the laws of geometry. Buildings lean at impossible angles, and the ground beneath your feet ripples like water. Behind you, Lornsmouth is collapsing—not just physically, but metaphysically. The boundaries between here and there, now and then, real and unreal are dissolving. The sky has colors that don't exist, and the screaming you hear might be the fabric of reality itself tearing. The harbor is ahead. There's still a boat. There's still a chance. But you can feel the thing beneath the waves reaching for you, its thoughts pressing against your mind like cold fingers.",
+    "pixelArtPrompt": "Running figure, collapsing reality, warping sky, 128x128",
+    "choices": [
+      { "text": "Leap onto the last departing boat", "sanityCost": 15, "nextStep": 21 },
+      { "text": "Look back at the rising god", "sanityCost": 25, "nextStep": 20 }
+    ]
+  },
+  {
+    "step": 20,
+    "title": "Embrace of Madness",
+    "description": "Your mind shatters like crystal dropped from a great height, each fragment reflecting a different truth, all of them terrible. But in the breaking, there is understanding. You see now that you were never meant to be whole, never meant to be merely human. The villagers approach with their glassy eyes, but now you understand their gaze—they see beyond the thin veil of reality. They welcome you with open arms. You walk into the sea, laughing, as the thing beneath the waves calls you by your true name. You have always belonged here. You have always been home.",
+    "pixelArtPrompt": "Protagonist with hollow eyes, joining cult, cosmic void, 128x128",
+    "choices": [],
+    "isEnding": true,
+    "endingType": "madness"
+  },
+  {
+    "step": 21,
+    "title": "Haunted Escape",
+    "description": "The boat's engine roars as you flee across dark waters. Behind you, Lornsmouth collapses in sections, buildings sliding into the churning sea like a mouth swallowing itself. The thing beneath the waves thrashes in frustration, its tentacles lashing the ruins. You made it. You survived. But survival is not salvation. Every night you dream of cyclopean cities beneath impossible oceans. Every reflection shows something standing just behind you. Your hands shake constantly now, and sometimes, in the mirror, your eyes look just a little too glassy. The escape was only the beginning of a different kind of horror—the horror of remembering.",
+    "pixelArtPrompt": "Boat departing, village sinking, traumatized survivor, 128x128",
+    "choices": [],
+    "isEnding": true,
+    "endingType": "escape"
+  },
+  {
+    "step": 22,
+    "title": "The Sailor's Log",
+    "description": "Aboard a fishing vessel, you find a captain's log describing impossible geometry beneath the waves. The final entry is today's date.",
+    "pixelArtPrompt": "Ship cabin, weathered logbook, nautical charts, 128x128",
+    "choices": [
+      { "text": "Take the log as evidence", "sanityCost": 10, "nextStep": 3 },
+      { "text": "Search for nautical weapons", "sanityCost": 5, "nextStep": 4 },
+      { "text": "Try to sail away immediately", "sanityCost": 15, "nextStep": 38 }
+    ]
+  },
+  {
+    "step": 23,
+    "title": "The Keeper's Fate",
+    "description": "The old woman's face contorts. 'The keeper saw too much. He waits for you in the deep places.' She points toward the cliffs.",
+    "pixelArtPrompt": "Old woman's twisted face, pointing finger, ominous expression, 128x128",
+    "choices": [
+      { "text": "Thank her and leave", "sanityCost": 10, "nextStep": 4 },
+      { "text": "Demand more answers", "sanityCost": 20, "nextStep": 26 },
+      { "text": "Follow her pointing finger to the cliffs", "sanityCost": 15, "nextStep": 15 }
+    ]
+  },
+  {
+    "step": 24,
+    "title": "Rooftop Revelation",
+    "description": "From above, you see the village's true layout—streets form a massive sigil. Movement below suggests you've been spotted.",
+    "pixelArtPrompt": "Aerial view, village forming occult symbol, rooftops, 128x128",
+    "choices": [
+      { "text": "Sketch the pattern quickly", "sanityCost": 15, "nextStep": 27 },
+      { "text": "Flee across rooftops", "sanityCost": 10, "nextStep": 8 },
+      { "text": "Descend into different district", "sanityCost": 5, "nextStep": 25 }
+    ]
+  },
+  {
+    "step": 25,
+    "title": "Forbidden Archives",
+    "description": "The library holds books that shouldn't exist. One tome shows tonight's ritual in meticulous detail.",
+    "pixelArtPrompt": "Dusty library, forbidden books, candlelight, 128x128",
+    "choices": [
+      { "text": "Study the ritual book", "sanityCost": 20, "nextStep": 27 },
+      { "text": "Search for escape routes", "sanityCost": 5, "nextStep": 8 },
+      { "text": "Look for the librarian's notes", "sanityCost": 10, "nextStep": 29 }
+    ]
+  },
+  {
+    "step": 26,
+    "title": "The Old Families",
+    "description": "The priest reveals three bloodlines have ruled Lornsmouth for centuries, waiting for 'the stars to align.' His family is one of them.",
+    "pixelArtPrompt": "Priest revealing genealogy chart, ancient family tree, 128x128",
+    "choices": [
+      { "text": "Ask about the other families", "sanityCost": 15, "nextStep": 31 },
+      { "text": "Accuse him of conspiracy", "sanityCost": 20, "nextStep": 28 },
+      { "text": "Pretend to be sympathetic", "sanityCost": 10, "nextStep": 14 }
+    ]
+  },
+  {
+    "step": 27,
+    "title": "Knowledge Gained",
+    "description": "The symbols reveal a pattern—the ritual can be disrupted, but only at the moment of summoning. You now know what must be done.",
+    "pixelArtPrompt": "Protagonist studying symbols, revelation moment, notes scattered, 128x128",
+    "choices": [
+      { "text": "Prepare for confrontation", "sanityCost": 10, "nextStep": 15 },
+      { "text": "Seek allies in the village", "sanityCost": 15, "nextStep": 28 },
+      { "text": "Fortify and wait", "sanityCost": 10, "nextStep": 13 }
+    ]
+  },
+  {
+    "step": 28,
+    "title": "Desecrated Sanctuary",
+    "description": "The church interior is wrong—pews face backwards, crosses are inverted, and something moves in the baptismal pool.",
+    "pixelArtPrompt": "Corrupted church interior, inverted symbols, dark pool, 128x128",
+    "choices": [
+      { "text": "Investigate the pool", "sanityCost": 20, "nextStep": 36 },
+      { "text": "Search the vestry", "sanityCost": 10, "nextStep": 31 },
+      { "text": "Flee immediately", "sanityCost": 15, "nextStep": 8 }
+    ]
+  },
+  {
+    "step": 29,
+    "title": "Partial Understanding",
+    "description": "The vision grants terrible clarity—you understand the entity's name, its purpose. Knowledge is a weapon, but also a burden.",
+    "pixelArtPrompt": "Protagonist with glowing eyes, cosmic knowledge flowing in, 128x128",
+    "choices": [
+      { "text": "Use this knowledge to fight", "sanityCost": 15, "nextStep": 37 },
+      { "text": "Suppress the forbidden knowledge", "sanityCost": 20, "nextStep": 8 },
+      { "text": "Seek more understanding", "sanityCost": 25, "nextStep": 35 }
+    ]
+  },
+  {
+    "step": 30,
+    "title": "The Innkeeper's Secret",
+    "description": "The cellar contains a shrine to the deep ones. Fresh offerings suggest the innkeeper serves them. You hear footsteps on the stairs.",
+    "pixelArtPrompt": "Underground shrine, fish idols, descending shadow, 128x128",
+    "choices": [
+      { "text": "Destroy the shrine", "sanityCost": 20, "nextStep": 32 },
+      { "text": "Hide and observe", "sanityCost": 15, "nextStep": 14 },
+      { "text": "Find another exit", "sanityCost": 10, "nextStep": 17 }
+    ]
+  },
+  {
+    "step": 31,
+    "title": "The Merchant's Record",
+    "description": "A journal reveals the masks were made from sacred clay. Wearing one marks you as willing sacrifice—or potential initiate.",
+    "pixelArtPrompt": "Open journal, mask diagrams, ritual instructions, 128x128",
+    "choices": [
+      { "text": "Burn the journal", "sanityCost": 10, "nextStep": 8 },
+      { "text": "Take it as proof", "sanityCost": 5, "nextStep": 27 },
+      { "text": "Read the initiation rites", "sanityCost": 20, "nextStep": 29 }
+    ]
+  },
+  {
+    "step": 32,
+    "title": "Armed and Dangerous",
+    "description": "The innkeeper provides a harpoon and silver bullets. 'Against men,' he says, 'not gods. Know the difference.'",
+    "pixelArtPrompt": "Harpoon and bullets on table, grim innkeeper, 128x128",
+    "choices": [
+      { "text": "Thank him and prepare", "sanityCost": 5, "nextStep": 15 },
+      { "text": "Question his true motives", "sanityCost": 15, "nextStep": 30 },
+      { "text": "Test the weapons immediately", "sanityCost": 10, "nextStep": 33 }
+    ]
+  },
+  {
+    "step": 33,
+    "title": "Shadow the Procession",
+    "description": "You follow the cultists through winding streets. They converge at the lighthouse, their numbers growing impossibly large.",
+    "pixelArtPrompt": "Following hooded figures, growing crowd, lighthouse ahead, 128x128",
+    "choices": [
+      { "text": "Infiltrate the gathering", "sanityCost": 15, "nextStep": 16 },
+      { "text": "Find alternative entrance", "sanityCost": 10, "nextStep": 17 },
+      { "text": "Create a distraction", "sanityCost": 20, "nextStep": 34 }
+    ]
+  },
+  {
+    "step": 34,
+    "title": "The Lighthouse Ascent",
+    "description": "Climbing the exterior, you peer through the beacon room window. The keeper's preserved corpse is wired to the light mechanism.",
+    "pixelArtPrompt": "Outside lighthouse tower, storm, corpse visible through window, 128x128",
+    "choices": [
+      { "text": "Destroy the beacon", "sanityCost": 20, "nextStep": 37 },
+      { "text": "Enter through the window", "sanityCost": 15, "nextStep": 18 },
+      { "text": "Signal for help", "sanityCost": 10, "nextStep": 38 }
+    ]
+  },
+  {
+    "step": 35,
+    "title": "The Tome's Terrible Truth",
+    "description": "You clutch the ritual book. Its words writhe and change, teaching you things humanity was never meant to know.",
+    "pixelArtPrompt": "Glowing ancient tome, shifting text, protagonist reading, 128x128",
+    "choices": [
+      { "text": "Master its power", "sanityCost": 25, "nextStep": 39 },
+      { "text": "Destroy the book", "sanityCost": 15, "nextStep": 19 },
+      { "text": "Use one ritual against another", "sanityCost": 20, "nextStep": 37 }
+    ]
+  },
+  {
+    "step": 36,
+    "title": "Submerged Passage",
+    "description": "The flooded tunnel reveals ancient stonework predating human civilization. Something massive swims past in the darkness.",
+    "pixelArtPrompt": "Underwater passage, ancient ruins, huge shadow, 128x128",
+    "choices": [
+      { "text": "Surface quickly", "sanityCost": 15, "nextStep": 17 },
+      { "text": "Explore the ruins", "sanityCost": 25, "nextStep": 40 },
+      { "text": "Follow the current", "sanityCost": 10, "nextStep": 18 }
+    ]
+  },
+  {
+    "step": 37,
+    "title": "The Counter-Ritual",
+    "description": "You speak words of power, disrupting the summoning. The entity shrieks in rage as reality stabilizes. The cultists turn toward you.",
+    "pixelArtPrompt": "Protagonist chanting, ritual circle breaking, angry cultists, 128x128",
+    "choices": [
+      { "text": "Hold the line", "sanityCost": 20, "nextStep": 41 },
+      { "text": "Run while they're confused", "sanityCost": 15, "nextStep": 19 },
+      { "text": "Complete the banishment", "sanityCost": 25, "nextStep": 42 }
+    ]
+  },
+  {
+    "step": 38,
+    "title": "Alone on Dark Waters",
+    "description": "You manage to sail out, but the stars are wrong. The compass spins uselessly. Something follows beneath the waves.",
+    "pixelArtPrompt": "Small boat on dark ocean, wrong stars, ripples below, 128x128",
+    "choices": [
+      { "text": "Navigate by memory", "sanityCost": 20, "nextStep": 21 },
+      { "text": "Drop anchor and hide", "sanityCost": 15, "nextStep": 40 },
+      { "text": "Face whatever follows", "sanityCost": 25, "nextStep": 20 }
+    ]
+  },
+  {
+    "step": 39,
+    "title": "Become the Heir",
+    "description": "The tome's power flows through you. You are no longer entirely human, but you command forces beyond mortal ken.",
+    "pixelArtPrompt": "Protagonist transformed, eldritch energy, floating tome, 128x128",
+    "choices": [
+      { "text": "Use this power to save others", "sanityCost": 15, "nextStep": 42 },
+      { "text": "Embrace your new nature", "sanityCost": 20, "nextStep": 43 }
+    ]
+  },
+  {
+    "step": 40,
+    "title": "The Deep Temple",
+    "description": "You discover a sunken temple, impossibly preserved. Its altar holds a key—or a prison. The entity stirs at your presence.",
+    "pixelArtPrompt": "Underwater temple, glowing altar, ancient key, 128x128",
+    "choices": [
+      { "text": "Take the key", "sanityCost": 20, "nextStep": 42 },
+      { "text": "Destroy the altar", "sanityCost": 25, "nextStep": 41 },
+      { "text": "Flee to the surface", "sanityCost": 15, "nextStep": 19 }
+    ]
+  },
+  {
+    "step": 41,
+    "title": "Pyrrhic Victory",
+    "description": "The ritual is broken. The entity retreats. But the cost was high—half the village burns, and you bear scars that will never heal.",
+    "pixelArtPrompt": "Burning village, protagonist wounded, dawn breaking, 128x128",
+    "choices": [
+      { "text": "Help the survivors", "sanityCost": 10, "nextStep": 21 },
+      { "text": "Collapse from exhaustion", "sanityCost": 15, "nextStep": 21 }
+    ]
+  },
+  {
+    "step": 42,
+    "title": "The Sealing",
+    "description": "With words of power learned from forbidden texts—or perhaps from the temple key that burns cold in your hand—you complete the binding ritual. The entity shrieks as ancient chains of force wrap around its consciousness, dragging it back to its prison beneath the waves. The lighthouse collapses. The cultists flee or fall. Lornsmouth is saved. But you are changed forever. You can feel the seal in your mind, a constant pressure, a responsibility that will never end. You are the guardian now, the watcher between worlds. For as long as you live—and perhaps beyond—you will stand vigil. The entity sleeps, but it dreams of freedom, and only you can ensure it never wakes.",
+    "pixelArtPrompt": "Protagonist at sealed gate, guardian pose, village safe, 128x128",
+    "choices": [],
+    "isEnding": true,
+    "endingType": "guardian"
+  },
+  {
+    "step": 43,
+    "title": "Transcendence",
+    "description": "The ritual tome's power flows through your veins like liquid starlight. Your body remains, but you are so much more now. You exist in multiple dimensions simultaneously, your consciousness expanded beyond the pathetic limitations of human perception. The entity beneath the waves recognizes you as kin—not servant, not master, but equal. The cosmos acknowledges you. Lornsmouth reshapes itself at your will, becoming a nexus between realities. You are no longer the frightened visitor who stumbled off that fog-shrouded dock. You are something new, something unprecedented. Neither savior nor destroyer, but a force of nature unto yourself. The stars spell out your new name.",
+    "pixelArtPrompt": "Protagonist with cosmic eyes, reality bending, village transformed, 128x128",
+    "choices": [],
+    "isEnding": true,
+    "endingType": "transcendence"
+  }
+]

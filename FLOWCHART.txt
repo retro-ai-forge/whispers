@@ -1,0 +1,173 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                    THE LORNSMOUTH HORROR - STORY FLOWCHART                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Legend:
+→ = Standard path
+⇒ = High sanity cost (20+)
+---> = Ending path
+[#] = Step number
+
+════════════════════════════════════════════════════════════════════════════════
+
+                                START [1] Arrival
+                                     (100 Sanity)
+                                         │
+                    ┌────────────────────┼────────────────────┐
+                    │                    │                    │
+              Crowd [2]            Alley [3]            Ships [22] NEW!
+                    │                    │                    │
+              ┌─────┴─────┐         ┌────┴────┐         ┌────┴────┐
+              │           │         │         │         │         │
+         Woman[23]   Square[4]  Light[4]  Creature  Evidence  Roofs[24]
+           NEW!          │         │      [5]⇒        │       NEW!
+              │      ┌───┴───┐     │         │        │          │
+              │      │       │     │    Fight/Die  Escape    Sigil⇒
+              │   Priest  Statue   │         │        │          │
+              │    [6]     [7]     │    Square[4] Alley[3]  Library[25]
+              │      │       │     │                              NEW!
+              └──────┴───┬───┴─────┘                               │
+                         │                                    Research⇒
+                    Town Square [4]                                │
+                         │                                   Knowledge[27]
+         ┌───────────────┼───────────────┐                         │
+         │               │               │                         │
+    Priest[6]       Statue[7]      Library[25] NEW!            Prepare[15]
+         │               │               │                         │
+    ┌────┴────┐     ┌────┴────┐    ┌────┴────┐                   │
+    │         │     │         │    │         │                   │
+  Water    Families Vision⇒  Step  Study⇒  Librarian             │
+   [8]      [26]⇒   [9]⇒    [8]   [27]    [29]⇒                 │
+    │        NEW!     │       │      │      NEW!                  │
+    │         │       │       │      │       │                    │
+    └─────────┴───────┴───────┴──────┴───────┴────────────────────┘
+                         │
+                    Night Falls [8]
+                         │
+         ┌───────────────┼───────────────┐
+         │               │               │
+      Inn [10]      Shop [11]      Church [28] NEW!
+         │               │               │
+    ┌────┴────┐     ┌────┴────┐     ┌────┴────┐
+    │         │     │         │     │         │
+  Ritual  Room  Cellar  Mask  Room  Pool   Vestry
+   [12]   [13]  [30]⇒  [14]  [13]  [36]⇒  [31]
+    │       │    NEW!    │     │    NEW!   NEW!
+    │       │      │     │     │      │      │
+ ┌──┴──┐    │   Shrine  │     │   Underwater │
+ │     │    │      │    │     │      │       │
+Armed Sneak │   Destroy │     │   Temple  Journal
+[32]⇒ [13]  │    [32]⇒  │     │    [40]⇒   [31]
+NEW!   │    │      │    │     │    NEW!    NEW!
+ │     │    │      │    │     │      │       │
+ │     └────┴──────┴────┴─────┴──────┴───────┘
+ │                    │
+ │              Pounding [13]
+ │                    │
+ │         ┌──────────┼──────────┐
+ │         │                     │
+ │      Hold [14]            Window [15]
+ │         │                     │
+ └─────────┘                     │
+           │                     │
+    Procession [14]         Storm [15]
+           │                     │
+    ┌──────┼──────┐         ┌────┼────┐
+    │      │      │         │    │    │
+  Join  Shadow Follow  Lighthouse Caves Climb⇒
+  [16]   [17]  [33]⇒      [18]   [17] [34]⇒
+         NEW!   NEW!              NEW!  NEW!
+    │      │      │         │      │     │
+    │      │      │         │   Study⇒ Beacon⇒
+    │      │      │         │    [19]  [37]
+    │      │      │         │      │     │
+    └──────┴──────┴─────────┘      │     │
+           │                       │     │
+    Cult Gathering [16]            │     │
+           │                       │     │
+    ┌──────┼──────┐               │     │
+    │      │      │               │     │
+ Rescue Watch  Tome⇒              │     │
+  [19]⇒  [18]  [35]⇒             │     │
+          │    NEW!               │     │
+          │      │                │     │
+          │   Master⇒             │     │
+          │    [39]               │     │
+          │    NEW!               │     │
+          │      │                │     │
+          └──────┴────────────────┴─────┘
+                 │
+           Summoning [18]
+                 │
+         ┌───────┼───────┐
+         │       │       │
+     Disrupt⇒ Paralyzed Counter⇒
+      [19]⇒    [20]    [37]⇒
+              MADNESS   NEW!
+                 │       │
+                 │    ┌──┴──┐
+                 │    │     │
+                 │   Hold Complete⇒
+                 │   [41]⇒  [42]
+                 │   NEW!  GUARDIAN
+                 │     │    NEW!
+                 └─────┘
+                   │
+            Escape [19]
+                   │
+            ┌──────┴──────┐
+            │             │
+          Boat          Look⇒
+          [21]          [20]
+         ESCAPE       MADNESS
+         
+════════════════════════════════════════════════════════════════════════════════
+
+ALTERNATE/ADVANCED PATHS:
+
+[22] Ships → [38] Sail Alone → [21] Escape OR [20] Madness
+[35] Tome → [39] Master Power → [43] Transcendence NEW!
+[40] Deep Temple → [42] Guardian Ending NEW!
+[36] Underwater → [40] Temple OR [17] Caves
+[29] Partial Understanding → [37] Counter-ritual OR [35] Seek More⇒
+
+════════════════════════════════════════════════════════════════════════════════
+
+FOUR ENDINGS:
+
+[20] 💀 MADNESS - Mind shattered, join the cult
+     - Sanity reaches 0
+     - Or choose to embrace the horror
+
+[21] ⛵ ESCAPE - Survive but traumatized forever  
+     - Flee with sanity remaining
+     - Village collapses into sea
+
+[42] 🛡️ GUARDIAN - Seal entity, become eternal watcher NEW!
+     - Complete binding ritual
+     - Or use temple key
+     - Moderate-high sanity required
+
+[43] ♾️ TRANSCENDENCE - Become something beyond human NEW!
+     - Master the ritual tome
+     - Embrace transformation
+     - High sanity cost but ultimate power
+
+════════════════════════════════════════════════════════════════════════════════
+
+CRITICAL PATHS TO SPECIAL ENDINGS:
+
+Guardian Path:
+  [1]→[22]→[4]→[25]→[27]→[15]→[17]→[40]→[42] (Research + Temple)
+  [1]→[4]→[7]→[27]→[15]→[18]→[37]→[42] (Counter-ritual)
+
+Transcendence Path:  
+  [1]→[2]→[4]→[6]→[14]→[16]→[35]→[39]→[43] (Steal + Master Tome)
+  [1]→[4]→[7]→[9]→[29]→[35]→[39]→[43] (Vision + Knowledge)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                              Total: 43 Steps
+                           22 New Branches Added
+                            4 Possible Endings
+                          100+ Decision Points
